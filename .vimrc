@@ -81,7 +81,25 @@
   " autocmd VimEnter * NERDTree
 " }}} 
 
-" Vim colorscheme configuration. {{{
+" Vim Airline configuration. {{{
+
+" Enable Vim-Bufferline integration.
+  let g:airline#extensions#bufferline#enabled = 1
+
+" Enable CoC integration. 
+  let g:airline#extensions#coc#enabled = 1
+
+" Enable CoC status display.
+  let g:airline#extensions#coc#show_coc_status = 1 
+
+" Enable powerline symbols 
+  let g:airline_powerline_fonts = 1
+
+" Enable ALE integration
+  let g:airline#extensions#ale#enabled = 1
+" }}}
+
+ " Vim colorscheme configuration. {{{
     " Sonokai configuration. {{{
       if has('termguicolors')
         set termguicolors
@@ -101,38 +119,42 @@
 " }}}
 
 " Vim shortcut mappings. {{{
-  " Set leader key.
-    let mapleader = "CTRL"
-
-  " Press space in normal mode to enter command mode.
-  " nnoremap <space> : 
-
-  " Use CTRL + hjkl to switch windows. 
-    nnoremap <c-j> <c-w>j
-    nnoremap <c-k> <c-w>k
-    nnoremap <c-h> <c-w>h
-    nnoremap <c-l> <c-w>l
   
+  " Set leader key.
+    let mapleader = ";"
+
+  " Open new window.
+    nnoremap <leader>n <C-w>n
+
+  " Open a new vertically split window.
+    nnoremap <leader>m <C-w>v
+
+  " Close window.
+    nnoremap <leader>q <C-w>q
+
+  " Use ; + hjkl to switch windows. 
+    nnoremap <leader>j <c-w>j
+    nnoremap <leader>k <c-w>k
+    nnoremap <leader>h <c-w>h
+    nnoremap <leader>l <c-w>l
+  
+  " Switch buffers.
+    nnoremap <leader>bn :bn<enter>
+
+  " Close active buffer.
+    nnoremap <leader>bq :bd<enter>
+
   " Toggle NerdTree
     nnoremap <c-f> :NERDTreeToggle<enter>
 
   " Complete suggestions.
-    inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+    inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
   " Use TAB and S-TAB to navigate completion list. 
-    inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>" 
-    inoremap <expr> <c-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+    inoremap <expr> <C-Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>" 
+    inoremap <expr> <c-S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 
 " }}} 
-
-
-
-
-
-
-
-
-
-
 
 
 

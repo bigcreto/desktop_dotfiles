@@ -1,5 +1,3 @@
-require("bigcreto.plugins-setup")
-require("bigcreto.plugins")
-require("bigcreto.core.options")
-require("bigcreto.core.keymaps")
-require("bigcreto.core.colorscheme")
+require("pluginSetup")
+require("plugins")
+require("core")

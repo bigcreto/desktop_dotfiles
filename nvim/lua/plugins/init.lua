@@ -1,0 +1,11 @@
+require("plugins.onedark")
+require("plugins.mason")
+require("plugins.lspconfig")
+require("plugins.nvim-cmp")
+require("plugins.lualine")
+require("plugins.nvim-tree")
+require("plugins.treesitter")
+require("plugins.telescope")
+require("plugins.oil")
+require("plugins.harpoon")
+

@@ -27,3 +27,8 @@ opt.completeopt="menu,menuone,noselect"
 opt.showmode = false
 
 opt.splitright = true
+
+opt.scrolloff = 15
+
+opt.spell = false
+

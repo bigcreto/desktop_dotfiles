@@ -5,7 +5,7 @@ if not onedark_status then
 end
 
 onedark.setup({
-  style = "warmer"
+  style = "cool"
 })
 
 onedark.load()

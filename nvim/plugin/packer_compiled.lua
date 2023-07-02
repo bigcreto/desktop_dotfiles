@@ -109,11 +109,6 @@ _G.packer_plugins = {
     path = "/home/jack/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
-  harpoon = {
-    loaded = true,
-    path = "/home/jack/.local/share/nvim/site/pack/packer/start/harpoon",
-    url = "https://github.com/ThePrimeagen/harpoon"
-  },
   ["lspkind.nvim"] = {
     loaded = true,
     path = "/home/jack/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
@@ -159,11 +154,6 @@ _G.packer_plugins = {
     path = "/home/jack/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
-  ["oil.nvim"] = {
-    loaded = true,
-    path = "/home/jack/.local/share/nvim/site/pack/packer/start/oil.nvim",
-    url = "https://github.com/stevearc/oil.nvim"
-  },
   ["onedark.nvim"] = {
     loaded = true,
     path = "/home/jack/.local/share/nvim/site/pack/packer/start/onedark.nvim",
@@ -189,15 +179,10 @@ _G.packer_plugins = {
     path = "/home/jack/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["vim-moonfly-colors"] = {
+  ["typescript.nvim"] = {
     loaded = true,
-    path = "/home/jack/.local/share/nvim/site/pack/packer/start/vim-moonfly-colors",
-    url = "https://github.com/bluz71/vim-moonfly-colors"
-  },
-  ["vim-nightfly-guicolors"] = {
-    loaded = true,
-    path = "/home/jack/.local/share/nvim/site/pack/packer/start/vim-nightfly-guicolors",
-    url = "https://github.com/bluz71/vim-nightfly-guicolors"
+    path = "/home/jack/.local/share/nvim/site/pack/packer/start/typescript.nvim",
+    url = "https://github.com/jose-elias-alvarez/typescript.nvim"
   },
   ["vim-surround"] = {
     loaded = true,

@@ -43,10 +43,15 @@
   keymap.set("n", "<leader>fr", vim.cmd.NvimTreeFocus)
 
 -- Telescope keybinds.
-  keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
-  keymap.set("n", "<leader>fb", ":Telescope buffers<CR>")
-  keymap.set("n", "<leader>fm", ":Telescope man_pages<CR>")
-  keymap.set("n", "<leader>fk", ":Telescope keymaps<CR>")
 
--- Oil keybinds.
-  keymap.set("n", "<leader>oo", vim.cmd.Oil)
+  local telescope_builtin_status, telescope_builtin = pcall(require, "telescope.builtin")
+  if not telescope_builtin_status then
+    return
+  end
+
+  keymap.set("n", "<leader>ff", telescope_builtin.find_files, {})
+  keymap.set("n", "<leader>fb", telescope_builtin.buffers, {})
+  keymap.set("n", "<leader>fm", telescope_builtin.man_pages, {})
+  keymap.set("n", "<leader>fk", telescope_builtin.keymaps, {})
+  keymap.set("n", "<leader>fo", telescope_builtin.oldfiles, {})
+

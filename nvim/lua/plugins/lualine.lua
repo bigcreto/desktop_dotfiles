@@ -5,7 +5,18 @@ end
 
 lualine.setup({
   options = {
-    theme = "onedark"
+    theme = "auto"
+  },
+  tabline = {
+    lualine_a = { 'filename' },
+    lualine_b = { 'windows' },
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = { 'tabs' }
+
+  },
+  extensions = {
+    "nvim-tree",
   }
 })
-require('lualine').get_config()

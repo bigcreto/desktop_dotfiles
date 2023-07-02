@@ -31,8 +31,6 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim")
 
 	-- Colorschemes.
-	use("bluz71/vim-nightfly-guicolors")
-	use("bluz71/vim-moonfly-colors")
   use("navarasu/onedark.nvim")
 
 	-- Nvim tree.
@@ -63,6 +61,7 @@ return packer.startup(function(use)
   -- LSP Configuration.
   use("neovim/nvim-lspconfig")
   use("onsails/lspkind.nvim")
+  use("jose-elias-alvarez/typescript.nvim")
 
   -- Treesitter
   use{
@@ -85,10 +84,7 @@ return packer.startup(function(use)
   -- Vim surround.
   use("tpope/vim-surround")
 
-  -- Oil Nvim
-  use("stevearc/oil.nvim")
 
-  use("ThePrimeagen/harpoon")
 
 	if packer_bootstrap then
 		packer.sync()

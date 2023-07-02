@@ -10,6 +10,16 @@ end
 
 mason.setup()
 
-mason_lspconfig.setup()
+mason_lspconfig.setup({
+  ensure_installed = {
+    "bashls",
+    "clangd",
+    "jdtls",
+    "lua_ls",
+    "tsserver",
+    "vimls",
+    "yamlls"
+  },
+})
 
 

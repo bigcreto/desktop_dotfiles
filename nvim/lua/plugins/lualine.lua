@@ -1,22 +1,20 @@
-local lualine_status, lualine = pcall(require, "lualine")
-if not lualine_status then
-  return
-end
-
-lualine.setup({
-  options = {
-    theme = "auto"
+return {
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = {
+      options = {
+        theme = "auto",
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
+      },
+      tabline = {
+        lualine_a = { "windows" },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = { "tabs" },
+      },
+    },
   },
-  tabline = {
-    lualine_a = { 'filename' },
-    lualine_b = { 'windows' },
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = { 'tabs' }
-
-  },
-  extensions = {
-    "nvim-tree",
-  }
-})
+}

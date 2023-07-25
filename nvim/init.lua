@@ -1,3 +1,2 @@
-require("pluginSetup")
-require("plugins")
 require("core")
+require("pluginSetup")

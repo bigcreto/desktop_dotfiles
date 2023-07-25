@@ -1,25 +1,31 @@
-local mason_status, mason = pcall(require, "mason")
-if not mason_status then
-  return
-end
-
-local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not mason_lspconfig_status then
-  return
-end
-
-mason.setup()
-
-mason_lspconfig.setup({
-  ensure_installed = {
-    "bashls",
-    "clangd",
-    "jdtls",
-    "lua_ls",
-    "tsserver",
-    "vimls",
-    "yamlls"
+return {
+  {
+    "williamboman/mason.nvim",
+    build = ":MasonUpdate",
+    opts = {
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗"
+        },
+      },
+    },
   },
-})
-
-
+  {
+    "williamboman/mason-lspconfig.nvim",
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    opts = {
+      ensure_installed = {
+        "clangd",
+        "codelldb",
+        "gopls",
+        "lua-language-server",
+        "ocaml-lsp",
+        "rust-analyzer",
+      },
+    },
+  },
+}

@@ -6,12 +6,6 @@ return {
       {
         "folke/neodev.nvim",
         opts = {
-          library = {
-            plugins = {
-              "nvim-dap-ui"
-            },
-            types = true,
-          },
         },
       },
       { "simrat39/rust-tools.nvim" },
@@ -31,14 +25,6 @@ return {
       if not rust_tools_status then
         return
       end
-
-      local rust_tools_dap_status, rust_tools_dap = pcall(require,"rust-tools.dap")
-      if not rust_tools_dap_status then
-        return
-      end
-
-      local codelldb_path = vim.fn.stdpath("data") .. "/mason/packages/extension/adapter/codelldb"
-      local liblldb_path = vim.fn.stdpath("data") .. "/mason/packages/extension/lldb/lib/liblldb.so"
 
       local capabilities = cmp_lsp.default_capabilities()
 
@@ -74,9 +60,6 @@ return {
           capabilities = capabilities,
           standalone = true,
         },
-         dap = {
-            adapter = rust_tools_dap.get_codelldb_adapter(codelldb_path, liblldb_path)
-         },
       })
 
       vim.api.nvim_create_autocmd("LspAttach", {

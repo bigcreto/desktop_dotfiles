@@ -1,9 +1,9 @@
 return {
 
-  { "tpope/vim-surround" },
+  { "tpope/vim-surround"            },
   { "numToStr/Comment.nvim", opts = {} },
-  { "nvim-lua/plenary.nvim" },
-  { "nvim-tree/nvim-web-devicons" },
+  { "nvim-lua/plenary.nvim"         },
+  { "nvim-tree/nvim-web-devicons"   },
   {
     "szw/vim-maximizer",
     config = function()
@@ -11,13 +11,13 @@ return {
     end,
   },
   { import = "plugins/colorschemes" },
-  { import = "plugins/toggleterm" },
-  { import = "plugins/lualine" },
-  { import = "plugins/mason" },
-  { import = "plugins/lspconfig" },
-  { import = "plugins/nvim-cmp" },
-  { import = "plugins/autopairs" },
-  { import = "plugins/nvim-dap" },
-  { import = "plugins/treesitter" },
+  { import = "plugins/toggleterm"   },
+  { import = "plugins/lualine"      },
+  { import = "plugins/treesitter"   },
+  { import = "plugins/mason"        },
+  { import = "plugins/lspconfig"    },
+  { import = "plugins/nvim-cmp"     },
+  { import = "plugins/autopairs"    },
+  { import = "plugins/tabout"       },
 
 }

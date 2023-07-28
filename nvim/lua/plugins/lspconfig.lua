@@ -6,6 +6,7 @@ return {
       {
         "folke/neodev.nvim",
         opts = {
+          library = { plugins = { "nvim-dap-ui" }, types = true },
         },
       },
       { "simrat39/rust-tools.nvim" },
@@ -26,6 +27,9 @@ return {
         return
       end
 
+      -- local codelldb_path = "/home/jack/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb"
+      -- local liblldb_path = "/home/jack/.local/share/nvim/mason/packages/codelldb/extension/lldb/lib/liblldb.so"
+
       local capabilities = cmp_lsp.default_capabilities()
 
       lspconfig["clangd"].setup({
@@ -36,11 +40,15 @@ return {
         capabilities = capabilities,
       })
 
+      lspconfig["hls"].setup({
+        capabilities = capabilities,
+      })
+
       lspconfig["lua_ls"].setup({
         capabilities = capabilities,
       })
 
-      lspconfig["ocamllsp"].setup({
+      lspconfig["pyright"].setup({
         capabilities = capabilities,
       })
 
@@ -58,8 +66,11 @@ return {
 
           end,
           capabilities = capabilities,
-          standalone = true,
+          standalone = false,
         },
+        -- dap = {
+        --   adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
+        -- }
       })
 
       vim.api.nvim_create_autocmd("LspAttach", {

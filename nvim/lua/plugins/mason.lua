@@ -21,9 +21,11 @@ return {
       ensure_installed = {
         "clangd",
         "codelldb",
+        "jdtls",
+        "golangci-lint",
         "gopls",
         "lua-language-server",
-        "ocaml-lsp",
+        "pyright",
         "rust-analyzer",
       },
     },

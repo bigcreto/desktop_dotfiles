@@ -1,6 +1,9 @@
 return {
   {
+    -- Neovim LSP Boilerplate.
     "neovim/nvim-lspconfig",
+
+    -- Dependencies 
     dependencies = {
       { "folke/neoconf.nvim", opts = {} },
       {
@@ -10,18 +13,22 @@ return {
         },
       },
       { "simrat39/rust-tools.nvim" },
+      { "b0o/schemastore.nvim"     },
     },
     config = function()
+      -- Protected call Neovim Builtin LSP Boilerplate Configuration
       local lspconfig_status, lspconfig = pcall(require, "lspconfig")
       if not lspconfig_status then
         return
       end
 
+      -- Protected call Nvim CMP LSP Source
       local cmp_lsp_status, cmp_lsp = pcall(require, "cmp_nvim_lsp")
       if not cmp_lsp_status then
         return
       end
 
+      -- Protected call Rust Tools
       local rust_tools_status, rust_tools = pcall(require, "rust-tools")
       if not rust_tools_status then
         return
@@ -30,6 +37,7 @@ return {
       -- local codelldb_path = "/home/jack/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb"
       -- local liblldb_path = "/home/jack/.local/share/nvim/mason/packages/codelldb/extension/lldb/lib/liblldb.so"
 
+      -- Define CMP LSP Source Capabilities
       local capabilities = cmp_lsp.default_capabilities()
 
       lspconfig["clangd"].setup({
@@ -73,18 +81,48 @@ return {
         -- }
       })
 
+      lspconfig["yamlls"].setup({
+        capabilities = capabilities,
+        settings = {
+          yaml = {
+            schemaStore = {
+              enable = false,
+              url = "",
+            },
+            schemas = require("schemastore").yaml.schemas{
+              select = {
+                "Mason Registry",
+              }
+            },
+            validate = { enable = true },
+          }
+        }
+      })
+
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-        callback = function(ev)
-          local opts = { buffer = ev.buf }
-          vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          local opts = { buffer = args.buf }
+
+          if client.server_capabilities.hoverProvider then
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+          end
+
+          if client.server_capabilities.declarationProvider then
+            vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+          end
+
+          if client.server_capabilities.definitionProvider then
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+          end
+
+          if client.server_capabilities.implementationProvider then
+            vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+          end
+
           vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float)
-          vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-          vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-          vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-          -- vim.keymap.set("n", "<space>f", function()
-          --   vim.lsp.buf.format { async = true }
-          -- end, opts)
+
         end,
       })
     end,

@@ -11,6 +11,12 @@ return {
         go = { 'golangci-lint' },
       }
 
+      -- vim.api.nvim_create_autocmd("TextChanged", {
+      --   callback = function()
+      --     lint.try_lint()
+      --   end,
+      -- })
+      --
     end,
   },
 }

@@ -1,5 +1,6 @@
 return {
   {
+    -- Mason Language Server, Debugger, Linter, and Formatter Installer
     "williamboman/mason.nvim",
     build = ":MasonUpdate",
     opts = {
@@ -13,20 +14,22 @@ return {
     },
   },
   {
+    -- Mason Language Server Configuration
     "williamboman/mason-lspconfig.nvim",
   },
   {
+    -- Mason Tool Installer
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     opts = {
       ensure_installed = {
         "clangd",
         "codelldb",
-        "jdtls",
         "golangci-lint",
         "gopls",
         "lua-language-server",
         "pyright",
         "rust-analyzer",
+        "yaml-language-server",
       },
     },
   },

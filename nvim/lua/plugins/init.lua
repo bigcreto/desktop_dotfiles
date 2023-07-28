@@ -1,28 +1,28 @@
 return {
 
-  { "tpope/vim-surround"            },
-  { "numToStr/Comment.nvim", opts = {} },
-  { "nvim-lua/plenary.nvim"         },
-  { "nvim-tree/nvim-web-devicons"   },
+  { "tpope/vim-surround"               }, -- Import Vim Surround
+  { "numToStr/Comment.nvim", opts = {} }, -- Import Comment
+  { "nvim-lua/plenary.nvim"            }, -- Import Plenary
+  { "nvim-tree/nvim-web-devicons"      }, -- Import Devicons
   {
     "szw/vim-maximizer",
     config = function()
       vim.keymap.set("n", "<leader>wm",  vim.cmd.MaximizerToggle )
     end,
   },
-  { import = "plugins/colorschemes" },
-  { import = "plugins/lualine"      },
-  { import = "plugins/dashboard"        },
-  { import = "plugins/toggleterm"   },
-  { import = "plugins/treesitter"   },
-  { import = "plugins/mason"        },
-  { import = "plugins/lspconfig"    },
-  { import = "plugins/fidget"       },
-  { import = "plugins/nvim-cmp"     },
-  { import = "plugins/autopairs"    },
-  { import = "plugins/tabout"       },
-  { import = "plugins/nvim-lint"    },
-  { import = "plugins/nvim-dap"     },
-  { import = "plugins/formatter"    },
+  { import = "plugins/colorschemes"    }, -- Import Colorschemes
+  { import = "plugins/lualine"         }, -- Import Lualine
+  { import = "plugins/dashboard"       }, -- Import Dashboard
+  { import = "plugins/toggleterm"      }, -- Import Toggleterm
+  { import = "plugins/treesitter"      }, -- Import Treesitter
+  { import = "plugins/mason"           }, -- Import Mason
+  { import = "plugins/lspconfig"       }, -- Import LSP
+  { import = "plugins/fidget"          }, -- Import Fidget
+  { import = "plugins/nvim-cmp"        }, -- Import Nvim CMP
+  { import = "plugins/autopairs"       }, -- Import Autopairs
+  { import = "plugins/tabout"          }, -- Import Tabout
+  { import = "plugins/nvim-lint"       }, -- Import Neovim Lint
+  { import = "plugins/nvim-dap"        }, -- Import Neovim DAP
+  { import = "plugins/formatter"       }, -- Import Formatter.
 
 }
